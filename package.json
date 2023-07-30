@@ -1,0 +1,26 @@
+{
+  "name": "moodboard",
+  "version": "1.0.0",
+  "description": "Returns a sassy quote based on your mood",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai-http": "^4.4.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "jest": "^29.6.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "request": "^2.88.2"
+  }
+}
