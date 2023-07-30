@@ -19,6 +19,9 @@ app.use(
   })
 );
 
+// set the view engine to ejs
+app.set("view engine", "ejs");
+
 // PORT
 const port = 3000;
 
@@ -31,6 +34,10 @@ app.get("/quote", (req, res) => {
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
   res.send({ quote: randomQuote });
 });
+
+// app.get("/test", (req, res) => {
+//   res.render("index", { quote: "Hey" });
+// });
 
 // Start server
 app.listen(port, () => {
