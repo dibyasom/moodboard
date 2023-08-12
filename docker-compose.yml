@@ -1,0 +1,46 @@
+version: "3"
+services:
+  backend:
+    build: .
+    volumes:
+      - .:/diby
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - NODE_ENV=${NODE_ENV}
+      - FORCE_COLOR=1
+    ports:
+      - "3000:3000"
+    networks:
+      - includeher
+    depends_on:
+      - mongo
+
+  # nginx_reverse_proxy:
+  #   build: ./app/services/nginx/
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   networks:
+  #     - azdev
+  #   depends_on:
+  #     - home_service
+  #     - user_service
+  #     - admin_service
+
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - mongodb:/archieve/
+    environment:
+      - MONGO_INITDB_DATABASE=azdev
+    command: mongod --quiet
+    networks:
+      - includeher
+
+volumes:
+  mongodb:
+
+networks:
+  includeher:
+    driver: bridge
