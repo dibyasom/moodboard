@@ -10,7 +10,7 @@ describe("Test moodboard", () => {
   //   Register the User
   // =======================================
   describe("/GET quote", () => {
-    it("Get a quote", (done) => {
+    it("Get a quote, and it should have atleast three words", (done) => {
       chai
         .request(app)
         .get(`/quote`)
